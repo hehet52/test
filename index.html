@@ -1,0 +1,41 @@
+git add index.html
+git commit -m "Add index.html for main page"
+git push origin main # 또는 git push origin gh-pages
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>성신여대 지도</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    img {
+      width: 300px;
+      height: auto;
+    }
+    h1 {
+      color: #8e44ad;
+      font-size: 2.5rem;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    h1:hover {
+      color: #5e3370;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i.namu.wiki/i/G3hc2h4AbOwG98IZSnz_07JRjDFciIPEtzIABy4KJhTrpIMCbSZtq8vey74byVrgouvCn-2iUbpBTPhdVRf46A.svg" alt="성신여대 로고">
+  <h1 onclick="location.href='map.html'">성신여대 지도</h1>
+</body>
+</html>
