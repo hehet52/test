@@ -88,8 +88,66 @@
     <span id="btn-water">💧 정수기</span>
   </div>
   <div id="map"></div>
+  <!-- 문의 버튼 -->
+<button id="contact-btn" style="
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: #8e44ad;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 22px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+">문의</button>
+
+<!-- 문의 팝업 -->
+<div id="contact-modal" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+">
+  <div style="
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 28px 20px 28px;
+    min-width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    position: relative;
+  ">
+    <!-- 엑스 버튼 -->
+    <span id="close-modal" style="
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 22px;
+      color: #888;
+      cursor: pointer;
+      font-weight: bold;
+    ">&times;</span>
+    <div style="font-size: 16px; color: #222; text-align: center; margin-top: 18px; margin-bottom: 6px;">
+       문의 사항이나 다른 의견이 있으면<br>
+        편하게 연락주세요
+     <div style="margin-top: 18px; font-weight: bold; color: #8e44ad;">
+       20251253@sungshin.ac.kr
+     </div>
+    </div>
+  </div>
+</div>
+ 
+
 
   <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=3bb811d698d8473f798fd1840a970d74&autoload=true"></script>
+  
+
 
   <script>
     const container = document.getElementById('map');
@@ -208,6 +266,15 @@
 
       activeType = type;
     }
+    // 문의 버튼 클릭 시 팝업 열기
+  document.getElementById('contact-btn').addEventListener('click', function() {
+  document.getElementById('contact-modal').style.display = 'flex';
+  });
+
+   // 엑스(×) 버튼 클릭 시 팝업 닫기
+  document.getElementById('close-modal').addEventListener('click', function() {
+  document.getElementById('contact-modal').style.display = 'none';
+  });
 
     document.getElementById('btn-toilet').addEventListener('click', () => showOverlay('toilet'));
     document.getElementById('btn-vending').addEventListener('click', () => showOverlay('vending'));
